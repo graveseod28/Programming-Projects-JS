@@ -1,0 +1,32 @@
+/*This simple function demonstrates a Ceasars Cipher based on the ROT13 cipher.
+The letters are shifted 13 places. The function takes an string, ciphers or deciphers the string and returns the ciphered or decipherd string depending on what is passed. The output will always be in Uppercase. And non-letter characters will be passed on to the final output string. -Luke Graves*/
+
+function rot13(str) {
+  /* the cipher array functions to hold our standard alphabet in order
+  while the input array holds our rot13 varient
+  the outStr varible holds the output string*/
+  
+  let cipher = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+ 
+  let input = ['N','O','P','Q','R','S','T','U','V','W','X','Y','Z','A','B','C','D','E','F','G','H','I','J','K','L','M']
+  
+  let outStr = '';
+
+//basic for loop to iterate through the string passed to the function
+  for(let i = 0; i < str.length; i ++){
+
+/*This if statement functions to see if the characters are a letter A-z in upper or lower case. If so it adds the letter from the cipher array that is located at the index of the letter in the rot13 array to the outStr String, in uppercase. else it just adds the char to the outStr String */
+    if(str[i].match(/[A-Z]/i)){     
+      outStr += cipher[input.indexOf(str[i].toUpperCase())];     
+    }else{
+      outStr += str[i];
+    }
+  }
+  console.log(outStr);
+  return outStr; //Returns the decoded or encoded string
+}
+
+rot13("SERR PBQR PNZC!");
+rot13("FREE CODE CAMP!");
+rot13("coding is fun");
+rot13("PBQVAT VF SHA");
