@@ -1,0 +1,28 @@
+/*This is a basic function to convert a number variable to a string of roman numerals. 
+The numeral array is used to store the roman numerals of different values as strings.
+The keys array is used to store the numbers that the roman numerals represent in order.
+the num1 variable serves to copy the num variable that is passed, as I do not like to changed passed variales.
+Lastly, the str string vasriable stores the string of roman numerals as they are passed.
+-Luke Graves  */
+
+function convertToRoman(num) {
+  let numeralArr = ['I','IV','V','IX','X','XL','L','XC','C','CD','D','CM','M'];
+  let key = [1,4,5,9,10,40,50,90,100,400,500,900,1000];
+  let num1 = num;
+  let str = '';
+
+/*outer for loop to loop through the key array in reverse order, checking largest value first*/
+  for(let x = (key.length - 1); x >= 0; x--){
+    //if statement to determine if the number passed is larger than the current key value
+    if((num1/key[x])>=1){
+    //inner for loop used to push the appropriate number of roman numerals to the string
+      for(let i = Math.floor(num1/key[x]); i > 0; i--){//Math.floor() used to round down
+      str += numeralArr[key.indexOf(key[x])];
+    }
+    num1 -= (Math.floor(num1/key[x])*key[x]);
+  }
+}
+ return str;
+}
+
+convertToRoman(4);
