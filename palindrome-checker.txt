@@ -1,0 +1,42 @@
+function palindrome(str) {
+  let x = null;
+  let cStr= '';
+  let nStr = '';
+ console.log(str);
+ for(let i = 0; i< str.length; i++){
+   if(str[i].match(/^[a-z]/i)||str[i].match(/[1-9]/)){
+   cStr += str[i].toLowerCase();
+   console.log('cStr:'+cStr);
+   }
+ }
+  for(let i = str.length-1; i >= 0; i--){
+    if(str[i].match(/^[a-z]/i)||str[i].match(/[1-9]/)){
+    nStr += str[i].toLowerCase();
+   
+    console.log('nStr:'+nStr);
+  }}
+console.log('cStr:'+cStr);
+  
+//CONVERT TO LOWWER CASE
+  for(let j = 0; j < str.length-1; j++){
+    if(nStr[j] === cStr[j]){
+      console.log(nStr[j]);
+      console.log(str[j]);
+      x = true;
+    }
+    else{
+      x= false;
+      console.log('test fail')
+      return x;
+    }
+  }
+  /*console.log(str[str.length-1])
+  console.log(x);
+  console.log(nStr)*/
+  if(x === true){
+    console.log("test pass");
+  }else{console.log('test fail')};
+  return x;
+}
+
+palindrome("race car");

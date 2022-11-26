@@ -1,0 +1,51 @@
+/*Simple telephone number vailisity test function. This function will take a string and evaluate if it is a vaild US phone number and return true or false. The country code is optional, but must be 1 if included. Parentheses, dashes and spaces are optional. -Luke Graves*/
+function telephoneCheck(str) {
+
+if(str.match(/^\d{3}-\d{3}-\d{4}/)){
+  console.log("555-555-5555 test")
+  return true;
+}
+if(str.match(/^1\s\d{3}-\d{3}-\d{4}/)){
+  console.log("1 555-555-5555 test")
+  return true;
+}
+else if(str.match(/^1\s\d{3}\s\d{3}\s\d{4}/)){
+  console.log('1 555 555 5555 test')
+  return true;
+}
+else if(str.match(/^1\s\(\d{3}\)\s\d{3}\-\d{4}/)){
+  console.log('1 (555) 555-5555 test')
+  return true;
+}
+else if(str.match(/^\(\d{3}\)\d{3}-\d{4}/)){
+  console.log('(555)555-5555 test pass')
+  return true;
+}
+else if(str.match(/^1\(\d{3}\)\d{3}-\d{4}/)){
+  console.log('1(555)555-5555 test pass')
+  return true;
+}
+else if(str.match(/^\([0-9]\)\s\d{3}-\d{4}/)){
+  console.log('(555) 555-5555 test pass')
+  return true;
+}
+else if(str.match(/^\d{3}\s\d{3}\s\d{4}/)){
+  console.log('555 555 5555 test pass')
+  return true;
+  }
+else if(str.match(/(^\d{10}$)/)){
+  console.log('5555555555^^ test pass')
+  return true;
+  }
+  else if(str.match(/^1[0-9]{10}/)){
+  console.log('15555555555 test pass')
+  return true;
+  }
+  else{
+    console.log('failed all tests')
+    return false;}
+
+
+}
+
+telephoneCheck("27576227382");
